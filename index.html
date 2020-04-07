@@ -95,6 +95,7 @@
 <div id="-measurement-units-for-r" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#-measurement-units-for-r" class="anchor"></a><img src="https://avatars1.githubusercontent.com/u/32303769?s=40&amp;v=4"> Measurement Units for R</h1></div>
+<!-- badges: start -->
 
 <p>Support for measurement units in R vectors, matrices and arrays: automatic propagation, conversion, derivation and simplification of units; raising errors in case of unit incompatibility. Compatible with the POSIXct, Date and difftime classes. Uses the UNIDATA udunits library and unit database for unit compatibility checking and conversion.</p>
 <div id="documentation" class="section level3">
@@ -141,7 +142,7 @@
 <p>Install the release version from CRAN:</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"units"</span>)</pre></div>
 <p>The installation of the development version from GitHub requires, e.g., the <code>remotes</code> package:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"r-quantities/units"</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"r-quantities/units"</span>)</pre></div>
 <p>If the installation fails due to a missing udunits2 system library, either install it e.g.Â on Ubuntu or Debian by</p>
 <pre><code>sudo apt-get install libudunits2-dev</code></pre>
 <p>on CentOS7 with</p>
@@ -197,6 +198,7 @@ sudo ldconfig</code></pre>
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://github.com/r-quantities/units/actions"><img src="https://github.com/r-quantities/units/workflows/R%20CMD%20Check%20via%20%7Btic%7D/badge.svg?branch=master" alt="R CMD Check via {tic}"></a></li>
 <li><a href="https://travis-ci.org/r-quantities/units"><img src="https://travis-ci.org/r-quantities/units.svg?branch=master" alt="Build Status"></a></li>
 <li><a href="https://ci.appveyor.com/project/edzer/units"><img src="https://ci.appveyor.com/api/projects/status/github/r-quantities/units?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
 <li><a href="https://codecov.io/github/r-quantities/units?branch=master"><img src="https://img.shields.io/codecov/c/github/r-quantities/units/master.svg" alt="Coverage Status"></a></li>

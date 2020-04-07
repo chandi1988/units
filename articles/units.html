@@ -139,8 +139,8 @@
 <p>We can set units to numerical values by <code>set_units</code>:</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r">(<span class="no">a</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/set_units.html">set_units</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(<span class="fl">10</span>),  <span class="no">m</span>/<span class="no">s</span>))
 <span class="co">## Units: [m/s]</span>
-<span class="co">##  [1] 0.71501278 0.13400679 0.57778204 0.09320165 0.47444722 0.46989823</span>
-<span class="co">##  [7] 0.60837844 0.47046383 0.34084576 0.47660146</span></pre></body></html></div>
+<span class="co">##  [1] 0.24669837 0.20472570 0.55949754 0.66252293 0.91513534 0.64122947</span>
+<span class="co">##  [7] 0.24949623 0.42697449 0.05734588 0.36443477</span></pre></body></html></div>
 <p>the result, e.g. </p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/set_units.html">set_units</a></span>(<span class="fl">10</span>, <span class="no">m</span>/<span class="no">s</span>)
 <span class="co">## 10 [m/s]</span></pre></body></html></div>
@@ -159,8 +159,8 @@
 <span class="fu"><a href="../reference/units.html">units</a></span>(<span class="no">b</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span>(<span class="no">ud_units</span>, <span class="no">km</span>/<span class="no">h</span>)
 <span class="no">b</span>
 <span class="co">## Units: [km/h]</span>
-<span class="co">##  [1] 2.5740460 0.4824244 2.0800153 0.3355259 1.7080100 1.6916336 2.1901624</span>
-<span class="co">##  [8] 1.6936698 1.2270447 1.7157653</span></pre></body></html></div>
+<span class="co">##  [1] 0.8881141 0.7370125 2.0141911 2.3850825 3.2944872 2.3084261 0.8981864</span>
+<span class="co">##  [8] 1.5371082 0.2064452 1.3119652</span></pre></body></html></div>
 </div>
 </div>
 <div id="basic-manipulations" class="section level2">
@@ -172,25 +172,25 @@
 <p>Arithmetic operations verify units, and create new ones</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">a</span> + <span class="no">a</span>
 <span class="co">## Units: [m/s]</span>
-<span class="co">##  [1] 1.4300256 0.2680136 1.1555641 0.1864033 0.9488944 0.9397965 1.2167569</span>
-<span class="co">##  [8] 0.9409277 0.6816915 0.9532029</span>
+<span class="co">##  [1] 0.4933967 0.4094514 1.1189951 1.3250459 1.8302707 1.2824589 0.4989925</span>
+<span class="co">##  [8] 0.8539490 0.1146918 0.7288695</span>
 <span class="no">a</span> * <span class="no">a</span>
 <span class="co">## Units: [m^2/s^2]</span>
-<span class="co">##  [1] 0.511243280 0.017957820 0.333832081 0.008686548 0.225100163 0.220804346</span>
-<span class="co">##  [7] 0.370124328 0.221336218 0.116175830 0.227148953</span>
+<span class="co">##  [1] 0.06086008 0.04191261 0.31303749 0.43893663 0.83747268 0.41117523</span>
+<span class="co">##  [7] 0.06224837 0.18230721 0.00328855 0.13281270</span>
 <span class="no">a</span> ^ <span class="fl">2</span>
 <span class="co">## Units: [m^2/s^2]</span>
-<span class="co">##  [1] 0.511243280 0.017957820 0.333832081 0.008686548 0.225100163 0.220804346</span>
-<span class="co">##  [7] 0.370124328 0.221336218 0.116175830 0.227148953</span>
+<span class="co">##  [1] 0.06086008 0.04191261 0.31303749 0.43893663 0.83747268 0.41117523</span>
+<span class="co">##  [7] 0.06224837 0.18230721 0.00328855 0.13281270</span>
 <span class="no">a</span> ** -<span class="fl">2</span>
 <span class="co">## Units: [s^2/m^2]</span>
-<span class="co">##  [1]   1.956016  55.686048   2.995518 115.120534   4.442467   4.528896</span>
-<span class="co">##  [7]   2.701795   4.518013   8.607642   4.402398</span></pre></body></html></div>
+<span class="co">##  [1]  16.431131  23.859166   3.194506   2.278233   1.194069   2.432053</span>
+<span class="co">##  [7]  16.064678   5.485246 304.085424   7.529400</span></pre></body></html></div>
 <p>and convert to the units of the first argument if necessary:</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">a</span> + <span class="no">b</span> <span class="co"># m/s + km/h -&gt; m/s</span>
 <span class="co">## Units: [m/s]</span>
-<span class="co">##  [1] 1.4300256 0.2680136 1.1555641 0.1864033 0.9488944 0.9397965 1.2167569</span>
-<span class="co">##  [8] 0.9409277 0.6816915 0.9532029</span></pre></body></html></div>
+<span class="co">##  [1] 0.4933967 0.4094514 1.1189951 1.3250459 1.8302707 1.2824589 0.4989925</span>
+<span class="co">##  [8] 0.8539490 0.1146918 0.7288695</span></pre></body></html></div>
 <p>Currently, powers are only supported for integer powers, so using <code>a ** 2.5</code> would result in an error.</p>
 </div>
 <div id="unit-simplification" class="section level3">
@@ -200,20 +200,20 @@
 <div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">t</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span>(<span class="no">ud_units</span>, <span class="no">s</span>)
 <span class="no">a</span> * <span class="no">t</span>
 <span class="co">## Units: [m]</span>
-<span class="co">##  [1] 0.71501278 0.13400679 0.57778204 0.09320165 0.47444722 0.46989823</span>
-<span class="co">##  [7] 0.60837844 0.47046383 0.34084576 0.47660146</span></pre></body></html></div>
+<span class="co">##  [1] 0.24669837 0.20472570 0.55949754 0.66252293 0.91513534 0.64122947</span>
+<span class="co">##  [7] 0.24949623 0.42697449 0.05734588 0.36443477</span></pre></body></html></div>
 <p>which also work when units need to be converted before they can be simplified:</p>
 <div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">t</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span>(<span class="no">ud_units</span>, <span class="no">min</span>)
 <span class="no">a</span> * <span class="no">t</span>
 <span class="co">## Units: [m]</span>
-<span class="co">##  [1] 42.900767  8.040407 34.666922  5.592099 28.466833 28.193894 36.502706</span>
-<span class="co">##  [8] 28.227830 20.450745 28.596088</span></pre></body></html></div>
+<span class="co">##  [1] 14.801902 12.283542 33.569852 39.751376 54.908120 38.473768 14.969774</span>
+<span class="co">##  [8] 25.618469  3.440753 21.866086</span></pre></body></html></div>
 <p>Simplification to unit-less values gives the “1” as unit:</p>
 <div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">m</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span>(<span class="no">ud_units</span>, <span class="no">m</span>)
 <span class="no">a</span> * <span class="no">t</span> / <span class="no">m</span>
 <span class="co">## Units: [1]</span>
-<span class="co">##  [1] 42.900767  8.040407 34.666922  5.592099 28.466833 28.193894 36.502706</span>
-<span class="co">##  [8] 28.227830 20.450745 28.596088</span></pre></body></html></div>
+<span class="co">##  [1] 14.801902 12.283542 33.569852 39.751376 54.908120 38.473768 14.969774</span>
+<span class="co">##  [8] 25.618469  3.440753 21.866086</span></pre></body></html></div>
 <p>Allowed operations that require convertible units are <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>, <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code>, <code><a href="https://rdrr.io/r/base/Comparison.html">!=</a></code>, <code><a href="https://rdrr.io/r/base/Comparison.html">&lt;</a></code>, <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>, <code><a href="https://rdrr.io/r/base/Comparison.html">&lt;=</a></code>, <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;=</a></code>. Operations that lead to new units are <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code>, and the power operations <code>**</code> and <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code>.</p>
 </div>
 <div id="mathematical-functions" class="section level3">
@@ -222,38 +222,37 @@
 <p>Mathematical operations allowed are: <code>abs</code>, <code>sign</code>, <code>floor</code>, <code>ceiling</code>, <code>trunc</code>, <code>round</code>, <code>signif</code>, <code>log</code>, <code>cumsum</code>, <code>cummax</code>, <code>cummin</code>.</p>
 <div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span>(<span class="no">a</span> ** <span class="fl">2</span> / <span class="fl">3</span>, <span class="fl">3</span>)
 <span class="co">## Units: [m^2/s^2]</span>
-<span class="co">##  [1] 0.17000 0.00599 0.11100 0.00290 0.07500 0.07360 0.12300 0.07380 0.03870</span>
-<span class="co">## [10] 0.07570</span>
+<span class="co">##  [1] 0.0203 0.0140 0.1040 0.1460 0.2790 0.1370 0.0207 0.0608 0.0011 0.0443</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span>(<span class="no">a</span>)
 <span class="co">## Units: [m/s]</span>
-<span class="co">##  [1] 0.7150128 0.8490196 1.4268016 1.5200033 1.9944505 2.4643487 3.0727271</span>
-<span class="co">##  [8] 3.5431910 3.8840367 4.3606382</span>
+<span class="co">##  [1] 0.2466984 0.4514241 1.0109216 1.6734445 2.5885799 3.2298093 3.4793056</span>
+<span class="co">##  [8] 3.9062801 3.9636259 4.3280607</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span>(<span class="no">a</span>) <span class="co"># base defaults to exp(1)</span>
 <span class="co">## Units: [(ln(re 1 m.s-1))]</span>
-<span class="co">##  [1] -0.3354549 -2.0098648 -0.5485586 -2.3729899 -0.7456049 -0.7552391</span>
-<span class="co">##  [7] -0.4969582 -0.7540362 -1.0763252 -0.7410746</span>
+<span class="co">##  [1] -1.39958887 -1.58608424 -0.58071615 -0.41170012 -0.08868332 -0.44436791</span>
+<span class="co">##  [7] -1.38831146 -0.85103101 -2.85865433 -1.00940771</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span>(<span class="no">a</span>, <span class="kw">base</span> <span class="kw">=</span> <span class="fl">10</span>)
 <span class="co">## Units: [(lg(re 1 m.s-1))]</span>
-<span class="co">##  [1] -0.1456862 -0.8728732 -0.2382360 -1.0305764 -0.3238121 -0.3279962</span>
-<span class="co">##  [7] -0.2158262 -0.3274738 -0.4674421 -0.3218446</span>
+<span class="co">##  [1] -0.60783372 -0.68882763 -0.25220182 -0.17879909 -0.03851467 -0.19298653</span>
+<span class="co">##  [7] -0.60293601 -0.36959807 -1.24149780 -0.43838020</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span>(<span class="no">a</span>, <span class="kw">base</span> <span class="kw">=</span> <span class="fl">2</span>)
 <span class="co">## Units: [(lb(re 1 m.s-1))]</span>
-<span class="co">##  [1] -0.4839591 -2.8996220 -0.7914027 -3.4235007 -1.0756805 -1.0895798</span>
-<span class="co">##  [7] -0.7169591 -1.0878443 -1.5528091 -1.0691447</span></pre></body></html></div>
+<span class="co">##  [1] -2.0191799 -2.2882359 -0.8377963 -0.5939577 -0.1279430 -0.6410874</span>
+<span class="co">##  [7] -2.0029101 -1.2277782 -4.1241664 -1.4562675</span></pre></body></html></div>
 </div>
 <div id="summary-functions" class="section level3">
 <h3 class="hasAnchor">
 <a href="#summary-functions" class="anchor"></a>Summary functions</h3>
 <p>Summary functions <code>sum</code>, <code>min</code>, <code>max</code>, and <code>range</code> are allowed:</p>
 <div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">a</span>)
-<span class="co">## 4.360638 [m/s]</span>
+<span class="co">## 4.328061 [m/s]</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span>(<span class="no">a</span>)
-<span class="co">## 0.09320165 [m/s]</span>
+<span class="co">## 0.05734588 [m/s]</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span>(<span class="no">a</span>)
-<span class="co">## 0.7150128 [m/s]</span>
+<span class="co">## 0.9151353 [m/s]</span>
 <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span>(<span class="no">a</span>)
 <span class="co">## Units: [m/s]</span>
-<span class="co">## [1] 0.09320165 0.71501278</span>
+<span class="co">## [1] 0.05734588 0.91513534</span>
 <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span>(<span class="no">ud_units</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span>(<span class="no">m</span>/<span class="no">s</span>, <span class="no">km</span>/<span class="no">h</span>)) <span class="co"># converts to first unit:</span>
 <span class="co">## 0.2777778 [m/s]</span></pre></body></html></div>
 </div>
@@ -263,10 +262,10 @@
 <p>Following <code>difftime</code>, printing behaves differently for length-one vectors:</p>
 <div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">a</span>
 <span class="co">## Units: [m/s]</span>
-<span class="co">##  [1] 0.71501278 0.13400679 0.57778204 0.09320165 0.47444722 0.46989823</span>
-<span class="co">##  [7] 0.60837844 0.47046383 0.34084576 0.47660146</span>
+<span class="co">##  [1] 0.24669837 0.20472570 0.55949754 0.66252293 0.91513534 0.64122947</span>
+<span class="co">##  [7] 0.24949623 0.42697449 0.05734588 0.36443477</span>
 <span class="no">a</span>[<span class="fl">1</span>]
-<span class="co">## 0.7150128 [m/s]</span></pre></body></html></div>
+<span class="co">## 0.2466984 [m/s]</span></pre></body></html></div>
 </div>
 <div id="subsetting" class="section level3">
 <h3 class="hasAnchor">
@@ -274,31 +273,31 @@
 <p>The usual subsetting rules work:</p>
 <div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="no">a</span>[<span class="fl">2</span>:<span class="fl">5</span>]
 <span class="co">## Units: [m/s]</span>
-<span class="co">## [1] 0.13400679 0.57778204 0.09320165 0.47444722</span>
+<span class="co">## [1] 0.2047257 0.5594975 0.6625229 0.9151353</span>
 <span class="no">a</span>[-(<span class="fl">1</span>:<span class="fl">9</span>)]
-<span class="co">## 0.4766015 [m/s]</span></pre></body></html></div>
+<span class="co">## 0.3644348 [m/s]</span></pre></body></html></div>
 </div>
 <div id="concatenation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#concatenation" class="anchor"></a>Concatenation</h3>
 <div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">a</span>,<span class="no">a</span>)
 <span class="co">## Units: [m/s]</span>
-<span class="co">##  [1] 0.71501278 0.13400679 0.57778204 0.09320165 0.47444722 0.46989823</span>
-<span class="co">##  [7] 0.60837844 0.47046383 0.34084576 0.47660146 0.71501278 0.13400679</span>
-<span class="co">## [13] 0.57778204 0.09320165 0.47444722 0.46989823 0.60837844 0.47046383</span>
-<span class="co">## [19] 0.34084576 0.47660146</span></pre></body></html></div>
+<span class="co">##  [1] 0.24669837 0.20472570 0.55949754 0.66252293 0.91513534 0.64122947</span>
+<span class="co">##  [7] 0.24949623 0.42697449 0.05734588 0.36443477 0.24669837 0.20472570</span>
+<span class="co">## [13] 0.55949754 0.66252293 0.91513534 0.64122947 0.24949623 0.42697449</span>
+<span class="co">## [19] 0.05734588 0.36443477</span></pre></body></html></div>
 <p>concatenation converts to the units of the first argument, if necessary:</p>
 <div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">a</span>,<span class="no">b</span>) <span class="co"># m/s, km/h -&gt; m/s</span>
 <span class="co">## Units: [m/s]</span>
-<span class="co">##  [1] 0.71501278 0.13400679 0.57778204 0.09320165 0.47444722 0.46989823</span>
-<span class="co">##  [7] 0.60837844 0.47046383 0.34084576 0.47660146 0.71501278 0.13400679</span>
-<span class="co">## [13] 0.57778204 0.09320165 0.47444722 0.46989823 0.60837844 0.47046383</span>
-<span class="co">## [19] 0.34084576 0.47660146</span>
+<span class="co">##  [1] 0.24669837 0.20472570 0.55949754 0.66252293 0.91513534 0.64122947</span>
+<span class="co">##  [7] 0.24949623 0.42697449 0.05734588 0.36443477 0.24669837 0.20472570</span>
+<span class="co">## [13] 0.55949754 0.66252293 0.91513534 0.64122947 0.24949623 0.42697449</span>
+<span class="co">## [19] 0.05734588 0.36443477</span>
 <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">b</span>,<span class="no">a</span>) <span class="co"># km/h, m/s -&gt; km/h</span>
 <span class="co">## Units: [km/h]</span>
-<span class="co">##  [1] 2.5740460 0.4824244 2.0800153 0.3355259 1.7080100 1.6916336 2.1901624</span>
-<span class="co">##  [8] 1.6936698 1.2270447 1.7157653 2.5740460 0.4824244 2.0800153 0.3355259</span>
-<span class="co">## [15] 1.7080100 1.6916336 2.1901624 1.6936698 1.2270447 1.7157653</span></pre></body></html></div>
+<span class="co">##  [1] 0.8881141 0.7370125 2.0141911 2.3850825 3.2944872 2.3084261 0.8981864</span>
+<span class="co">##  [8] 1.5371082 0.2064452 1.3119652 0.8881141 0.7370125 2.0141911 2.3850825</span>
+<span class="co">## [15] 3.2944872 2.3084261 0.8981864 1.5371082 0.2064452 1.3119652</span></pre></body></html></div>
 </div>
 </div>
 <div id="conversion-tofrom-difftime" class="section level2">
